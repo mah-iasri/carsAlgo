@@ -12,7 +12,7 @@
 You can install the development version of cars like so:
 
 ``` r
-install.packages(c("pls", "readxl", "ggplot2"))
+install.packages(c("pls", "ggplot2", "stats"))
 
 # Install cars from local source
 install.packages("path/to/cars_0.1.0.tar.gz", repos = NULL, type = "source")
@@ -30,9 +30,8 @@ set.seed(1)
 X <- matrix(rnorm(100 * 200), nrow = 100)
 y <- X[, 5] * 2 + X[, 50] * -1.5 + rnorm(100, sd = 0.5)
 
-# Instantiate and fit
-cars <- CARSAlgorithm(max_iter = 15, N = 30, cv_folds = 5, random_state = 42)
-result <- cars$fit(X, y, max_components = 8, plot=TRUE, plot_path='./cars_rmsecv_features.jpg')
+cars_obj <- CARSAlgorithm(max_iter = 15, N = 30, cv_folds = 5)
+result   <- fit(cars_obj, X, y, max_components = 8)
 
 cat("Best RMSECV      :", result$best_rmsecv, "\n")
 cat("Selected features:", result$best_features, "\n")
