@@ -17,3 +17,4 @@ Imports:
     ggplot2,
     pls
 URL: https://github.com/mah-iasri/cars
+BugReports: https://github.com/mah-iasri/cars/issues
