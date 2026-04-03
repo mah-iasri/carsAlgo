@@ -1,6 +1,6 @@
 Package: cars
 Title: Competitive Adaptive Reweighted Sampling (CARS) Algorithm for High Dimensional Dataset
-Version: 0.4.0
+Version: 0.5.0
 Authors@R: c(
   person("Md. Ashraful", "Haque", email = "ashrafulhaque664@gmail.com" , role = c("aut", "cre")),
   person("Avijit", "Ghosh", email = "avijitghosh19892@gmail.com" , role = "aut"),
@@ -13,7 +13,7 @@ Description: This implements the Competitive Adaptive Reweighted Sampling (CARS)
     Monte Carlo sub-sampling and exponential variable elimination techniques to 
     identify/select the most informative variables/features subjected to minimal 
     cross-validated RMSE score. The implementation of CARS algorithm is inspired 
-    from the work of Li et al., 2029 (Doi: https://doi.org/10.1016/j.aca.2009.06.046). 
+    from the work of Li et al., (2029) <doi:https://doi.org/10.1016/j.aca.2009.06.046>. 
     This algorithm is commonly applied in near-infrared (NIR), mid-infrared, 
     hyperspectral chemometrics areas.
 License: MIT + file LICENSE
