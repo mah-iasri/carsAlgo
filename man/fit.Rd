@@ -4,10 +4,10 @@
 \alias{fit}
 \title{Fit a Model Object to Data}
 \usage{
-fit(x, ...)
+fit(cars_obj, ...)
 }
 \arguments{
-\item{x}{A model configuration object (e.g., a \code{CARSAlgorithm} object).}
+\item{cars_obj}{A model configuration object (e.g., a \code{CARSAlgorithm} object).}
 
 \item{...}{Additional arguments passed to the specific method.}
 }
