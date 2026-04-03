@@ -1,0 +1,19 @@
+Package: cars
+Title: Competitive Adaptive Reweighted Sampling (CARS) Algorithm
+Version: 0.1.0
+Authors@R: c(
+  person("Md Ashraful", "Haque", email = "ashrafulhaque664@gmail.com" , role = c("aut", "cre")),
+  person("Avijit", "Ghosh", email = "avijitghosh19892@gmail.com" , role = "aut"),
+  person("Sayantani", "Karmakar", email = "sayantani@gmail.com" , role = "ctb")
+  )
+Description: This implements the Competitive Adaptive Reweighted Sampling (CARS) algorithm for variable selection from high dimensional dataset using in Partial Least Squares (PLS) regression models. CARS algorithm iteratively applies the Monte Carlo sub-sampling and exponential variable elimination techniques to identify/select the most informative variables/features subjected to minimal cross-validated RMSE score. The implementation of CARS algorithm is inspired from the work of Li et al., 2029 (Doi: https://doi.org/10.1016/j.aca.2009.06.046). This algorithm is commonly applied in near-infrared (NIR), mid-infrared, hyperspectral chemometrics areas.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends:
+    R (>= 4.1.0)
+Imports:
+    ggplot2,
+    pls
+URL: https://github.com/mah-iasri/cars
