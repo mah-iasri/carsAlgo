@@ -53,6 +53,7 @@
 #' @importFrom ggplot2 ggplot aes geom_line geom_point labs theme_minimal ggsave
 #' @importFrom utils txtProgressBar setTxtProgressBar
 #' @importFrom stats coef predict
+#' @importFrom rlang .data
 #' @export
 fit.CARSAlgorithm <- function(cars_obj,
                               X,
@@ -136,16 +137,32 @@ fit.CARSAlgorithm <- function(cars_obj,
   #### Generate plots
   best_idx        <- which.min(rmsecv_history)
   best_feature_pt <- num_features_history[best_idx]
-  plot_df <- data.frame(num_features = num_features_history,
-                        rmsecv       = rmsecv_history)
 
-  p <- ggplot2::ggplot(plot_df, ggplot2::aes(x = num_features, y = rmsecv)) +
+  plot_df <- data.frame(
+    num_features = num_features_history,
+    rmsecv       = rmsecv_history
+  )
+
+  # Best point as separate data frame — columns named to avoid
+  # clashing with function parameters x and y
+  best_pt_df <- data.frame(
+    pt_features = best_feature_pt,
+    pt_rmsecv   = best_rmsecv
+  )
+
+  p <- ggplot2::ggplot(
+    plot_df,
+    ggplot2::aes(x = .data$num_features, y = .data$rmsecv)   # .data$ fixes num_features and rmsecv
+  ) +
     ggplot2::geom_line(color = "black", linewidth = 0.8) +
     ggplot2::geom_point(color = "black", size = 2) +
     ggplot2::geom_point(
-      data = data.frame(x = best_feature_pt, y = best_rmsecv),
-      ggplot2::aes(x = x, y = y),
-      color = "darkred", shape = 15, size = 3, inherit.aes = FALSE
+      data = best_pt_df,
+      ggplot2::aes(x = .data$pt_features, y = .data$pt_rmsecv), # .data$ fixes x
+      color      = "darkred",
+      shape      = 15,
+      size       = 3,
+      inherit.aes = FALSE
     ) +
     ggplot2::labs(
       x     = "Number of variables",
