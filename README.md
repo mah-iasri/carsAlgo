@@ -44,7 +44,7 @@ y <- X[, 5] * 2 + X[, 50] * -1.5 + rnorm(100, sd = 0.5)
 
 cars_obj <- CARSAlgorithm(max_iter = 15, N = 30, cv_folds = 5)
 result   <- fit(cars_obj, X, y, max_components = 8,
-                plot_path = file.path(tempdir(), "cars_rmsecv_curve.jpg")))
+                plot_path = file.path(tempdir(), "cars_rmsecv_curve.jpg"))
 
 cat("Best RMSECV      :", result$best_rmsecv, "\n")
 cat("Selected features:", result$best_features, "\n")
@@ -58,6 +58,6 @@ competitive adaptive reweighted sampling method for multivariate calibration.
 
 ## Citation
 
-Haque, M.A., Ghosh, A., Karamakar, S., Sachan, H. and Kumari, S. (2026). carsAlgo. R Package. *CRAN* 
+Haque, M.A., Ghosh, A., Karamakar, S., Sachan, H. and Kumari, S. (2026). carsAlgo. R Package. *CRAN*. Doi: 10.32614/CRAN.package.carsAlgo
 
 
